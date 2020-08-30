@@ -2,7 +2,7 @@
 const fs = require("fs");
 const fsPromises = fs.promises;
 
-const ROWS_COUNT = 10;
+const ROWS_COUNT = 1000000;
 
 const randomWord = (length) => {
   const chars =
