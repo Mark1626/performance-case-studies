@@ -5,3 +5,4 @@
 
 - `make clean`
 - `make populate`
+- `psql -f queries.sql -d index_db`
