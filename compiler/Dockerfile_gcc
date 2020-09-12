@@ -3,7 +3,7 @@ FROM debian:buster
 MAINTAINER m.nimalan
 
 RUN apt update
-RUN apt install gcc make libreadline-dev curl zlib1g-dev
+RUN apt install -y gcc make libreadline-dev curl zlib1g-dev
 RUN curl -o postgresql-12.4.tar.gz https://ftp.postgresql.org/pub/source/v12.4/postgresql-12.4.tar.gz
 RUN tar -xvf postgresql-12.4.tar.gz && \
   cd postgresql-12.4 && \

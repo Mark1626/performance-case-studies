@@ -1,12 +1,17 @@
 # Testing to see if compiler makes a difference
 
+## TLDR;
+
+No significant performance difference
+
+---
+
 Tests are run using
 
 ```sql
 pgbench -i
 pgbench -c 10
 ```
-
 
 ## Clang
 
