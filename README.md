@@ -1,4 +1,6 @@
-# A repo for any benchmarks I do in postgresql
+# A repo for any performance case studies I do
 
-- [Compiler on Performance](./compiler/README.md)
-- [JSONB vs Joining table](./json-vs-btree/README.md)
+### Postgresql
+
+- [Compiler on Performance](./postgresql/compiler/README.md)
+- [JSONB vs Joining table](./postgresql/json-vs-btree/README.md)

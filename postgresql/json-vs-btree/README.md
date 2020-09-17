@@ -1,6 +1,6 @@
 
 [Results](./results.md){: .button}
-[Back](./index.md){: .button}
+[Back](../README.md){: .button}
 
 ### Usage
 
