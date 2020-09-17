@@ -1,7 +1,7 @@
 # Complier test
 
-[Results](./results.md){: .button}
-[Back](./../README.md){: .button}
+[Results](./results.md)
+[:arrow_backward:](./../README.md)
 
 A test to see if changing the compiler makes postgresql faster
 

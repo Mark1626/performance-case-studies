@@ -1,6 +1,7 @@
+# Case study of jsonb vs regular join
 
-[Results](./results.md){: .button}
-[Back](../README.md){: .button}
+[Results](./results.md)
+[:arrow_backward:](../README.md)
 
 ### Usage
 
