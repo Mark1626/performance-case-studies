@@ -16,15 +16,17 @@ const randomWord = (length) => {
 };
 
 const randomJSON = (len) =>
-  `""{"""codeA""": """${randomWord(len)}""", """codeB""": """${randomWord(len)}"""}""`;
+  `""{"""codeA""": """${randomWord(len)}""", """codeB""": """${randomWord(
+    len
+  )}"""}""`;
 
 const randomKey = (idx) => `key_${randomWord(50)}_${idx}`;
 
-const tbl_data = async () => {
-  fs.writeFileSync("tbl_data.csv", "");
-  fs.writeFileSync("tbl_key_store_data.csv", "");
-  let dataFile = await fsPromises.open("tbl_data.csv", "r+");
-  let keyStore = await fsPromises.open("tbl_key_store_data.csv", "r+");
+const tbl_data = async (tblName, keyStoreName) => {
+  fs.writeFileSync(tblName, "");
+  fs.writeFileSync(keyStoreName, "");
+  let dataFile = await fsPromises.open(tblName, "r+");
+  let keyStore = await fsPromises.open(keyStoreName, "r+");
 
   dataFile.write(`name,tbl_desc,field\n`);
   keyStore.write(`code,key,value\n`);
@@ -57,17 +59,15 @@ const tbl_data = async () => {
   }
 };
 
-const tbl_json_data = async () => {
-  fs.writeFileSync("tbl_json_data.csv", "");
-  let file = await fsPromises.open("tbl_json_data.csv", "r+");
+const tbl_json_data = async (tblName) => {
+  fs.writeFileSync(tblName, "");
+  let file = await fsPromises.open(tblName, "r+");
   file.write(`name,tbl_desc,field\n`);
   try {
     let promises = [];
     for (let index = 0; index < ROWS_COUNT; index++) {
       promises.push(
-        file.write(
-          `${randomJSON(200)};${randomJSON(200)};${randomWord(500)}\n`
-        )
+        file.write(`${randomJSON(200)};${randomJSON(200)};${randomWord(500)}\n`)
       );
     }
     await Promise.all(promises);
@@ -76,6 +76,19 @@ const tbl_json_data = async () => {
   }
 };
 
-Promise.all([tbl_json_data(), tbl_data()])
+const tbl = "tbl_data.csv";
+const keyStore = "tbl_key_store_data.csv";
+const tblJSON = "tbl_json_data.csv";
+
+const tbl2 = "tbl_data2.csv";
+const keyStore2 = "tbl_key_store_data2.csv";
+const tblJSON2 = "tbl_json_data2.csv";
+
+Promise.all([
+  tbl_json_data(tblJSON),
+  tbl_data(tbl, keyStore),
+  tbl_json_data(tblJSON2),
+  tbl_data(tbl2, keyStore2),
+])
   .then(() => console.log("files generated"))
   .catch((err) => console.log(err));
