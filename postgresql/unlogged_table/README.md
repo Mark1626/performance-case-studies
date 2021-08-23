@@ -1,0 +1,3 @@
+# Test with unlogged tables
+
+
